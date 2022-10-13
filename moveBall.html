@@ -30,12 +30,9 @@
     document.getElementById("balls").appendChild(myBall); // put them in the document
   }
 
-  // ball is a node list of the elements referring to each of the balls.
-  const ball = document.getElementById("balls").childNodes;
-
   // create an array of the ball objects, in random spots within our bounding area
   var allballs = [];
-  ball.forEach(allBounce); // note that because childNodes generates a node list and not an array, we cannot use the map method
+  document.getElementById("balls").childNodes.forEach(allBounce); // note that because childNodes generates a node list and not an array, we cannot use the map method
   // it seems inefficient to use both the forEach and the while loop to iterate through the balls - at some future date I may fix it.
 
   function allBounce(currentValue) {
@@ -50,6 +47,7 @@
   }
 
   function mooveBall(index) {
+    let ballInQuestion = document.getElementById("ball" +index);
     // detect edges
     if (
       (allballs[index].position_x > max_X) |
@@ -66,19 +64,19 @@
       let newColour = Math.floor(Math.random() * 16777215).toString(16); // generates a random hex
       // https://www.binaryhexconverter.com/hex-to-decimal-converter is where I got 16777215 (FFFFFF)
       // based on concept from here https://css-tricks.com/snippets/javascript/random-hex-color/ 
-      ball[index].style.background = "#" + newColour;
-      ball[index].style.zIndex = Math.ceil(Math.random() * 5);
+      ballInQuestion.style.background = "#" + newColour;
+      ballInQuestion.style.zIndex = Math.ceil(Math.random() * 5);
     }
     // update the ball's position
     allballs[index].position_x += allballs[index].velocity_x;
     allballs[index].position_y += allballs[index].velocity_y;
-    ball[index].style.left = allballs[index].position_x + "px";
-    ball[index].style.top = allballs[index].position_y + "px";
+    ballInQuestion.style.left = allballs[index].position_x + "px";
+    ballInQuestion.style.top = allballs[index].position_y + "px";
   }
 
   function mooveBalls() {
     // iterate through the various balls
-    for (let i = 0; i < ball.length; i++) {
+    for (let i = 0; i < allballs.length; i++) {
       mooveBall(i);
     }
   }
