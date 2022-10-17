@@ -1,5 +1,15 @@
 <div id="balls"></div>
 
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/Etc2by17Fe8"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
 <script>
   // The original remit was to create a ball that bounced in a limited space, by using setInterval
   // I upgraded things a bit.
@@ -7,8 +17,8 @@
   var numberBalls = 22; // set this to the number of balls you would like to generate (potentially later request input here?)
 
   // set our bounding box for the bouncing
-  var max_X = 600
-  var max_Y = 300;
+  var max_X = 500;
+  var max_Y = 260;
 
   // programmatically generate balls
   var i = 0;
@@ -17,13 +27,13 @@
     i++;
   }
 
-  //all balls have the same size and shape, but I randomized z-index (because why not?)
+  //all balls have the same shape, but I randomized size and z-index (because why not?)
   function generateBalls(index) {
     let myBall = document.createElement("div");
     let ballSize = Math.floor(Math.random() * 51) + 25;
     myBall.style.width = ballSize + "px";
     myBall.style.height = myBall.style.width; // we want circles not ovals
-    myBall.style.borderRadius = "50%"; 
+    myBall.style.borderRadius = "50%";
     myBall.style.position = "absolute";
     myBall.style.zIndex = Math.ceil(Math.random() * 5);
     myBall.setAttribute("id", "ball" + index); // name each ball element differently
@@ -37,8 +47,8 @@
 
   function allBounce(currentValue) {
     let bounce = {
-      velocity_x: (Math.floor(Math.random() * 10)+5),
-      velocity_y: (Math.floor(Math.random() * 10)+5),
+      velocity_x: Math.floor(Math.random() * 10) + 5,
+      velocity_y: Math.floor(Math.random() * 10) + 5,
       position_x: Math.floor(Math.random() * max_X),
       position_y: Math.floor(Math.random() * max_Y),
     };
@@ -47,7 +57,7 @@
   }
 
   function mooveBall(index) {
-    let ballInQuestion = document.getElementById("ball" +index);
+    let ballInQuestion = document.getElementById("ball" + index);
     // detect edges
     if (
       (allballs[index].position_x > max_X) |
@@ -63,7 +73,7 @@
       //change the color if it hits the Y-axis edge
       let newColour = Math.floor(Math.random() * 16777215).toString(16); // generates a random hex
       // https://www.binaryhexconverter.com/hex-to-decimal-converter is where I got 16777215 (FFFFFF)
-      // based on concept from here https://css-tricks.com/snippets/javascript/random-hex-color/ 
+      // based on concept from here https://css-tricks.com/snippets/javascript/random-hex-color/
       ballInQuestion.style.background = "#" + newColour;
       ballInQuestion.style.zIndex = Math.ceil(Math.random() * 5);
     }
