@@ -10,9 +10,9 @@ The original design of the program had a number of premade balls created in docu
 Randomizing the colour was a bit of a challenge. The class solution did it using an array of colour names. Stack Overflow provided a bunch of complex ways to do it more broadly, but https://lnkd.in/ghmUR9Vi taught me that you can cast from decimal to hex using toString in javascript - total game changer. I set it to change every time it hit the top or bottom of the bounding box.
 
 ## Additional changes
-2022 Oct 16 A classmate had her bouncing object in front of a video.  I thought it was cute so I added it.
-2022 Oct 16 Added a countdown timer to stop each ball at some future time.  
-2022 Oct 18 Improved the iteration process.
+* 2022 Oct 16 A classmate had her bouncing object in front of a video.  I thought it was cute so I added it.
+* 2022 Oct 16 Added a countdown timer to stop each ball at some future time.  
+* 2022 Oct 18 Improved the iteration process.
 
 
 ## Future plans
