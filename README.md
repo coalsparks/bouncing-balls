@@ -1,6 +1,9 @@
 # bouncing-balls
 A MIT xPro coding boot camp project
 
+## Installation
+As per our original example, the code is all contained in the HTML document.  
+
 ## Original scope
 The original scope asked us to create a bouncing ball that changed direction on hitting an arbitrarily decided limit.  The solution provided used a variable to track ball direction, but since I was already tracking velocity, I just made the velocity negative instead. Then I went a bit overboard on making it fancy.
 
@@ -21,3 +24,8 @@ Randomizing the colour was a bit of a challenge. The class solution did it using
 * I'm considering just grabbing the current state of each ball from the document on each iteration, instead of storing it in an array, and may wind up taking a stab at that some time down the road.
 * I may also add inputs at the beginning to indicate the number of balls, the time frame, etc.
 * Instead of arbitrarily setting limits, I may have the script grab it from the window properties.
+* Future plans would include separate css and js files.
+
+## License
+GNU General Public License v3.0
+* If you wind up using the code, I would love to hear how.  You can reach me through LinkedIn https://www.linkedin.com/in/sparksnicole/
